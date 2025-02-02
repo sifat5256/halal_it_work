@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 
 class TransactionController extends GetxController {
-  var selectedTab = "Received".obs;
+  var selectedTab = "All".obs;
 
   var transactions = [
     {"type": "Deposit", "date": "2023-09-05", "time": "10:01:59", "amount": "+1500000 BDT", "status": "Successful", "icon": "lock"},

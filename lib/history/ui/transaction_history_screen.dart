@@ -89,7 +89,7 @@ class TransactionHistoryScreen extends StatelessWidget {
             color: Color(0xFF494741)
           ),),
           trailing: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
            crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Text(tx["amount"]!, style: TextStyle(fontWeight: FontWeight.bold, color:Color(0xFF1E1700),fontSize: 14)),
