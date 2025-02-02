@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ContactsScreen extends StatelessWidget {
   final List<Map<String, dynamic>> contacts = [
+    {'name': 'My Number', 'number': '01332701284', 'color': Colors.pink},
+    {'name': '+880 1915-313344', 'number': '+880 1915-313344', 'color': Colors.purple},
+    {'name': '+880 1311860024', 'number': '+8801311860024', 'color': Colors.teal},
+    {'name': '+880 1576456199', 'number': '+8801576456199', 'color': Colors.green},
+    {'name': '+880 1754473264', 'number': '+8801754473264', 'color': Colors.blue},
     {'name': 'My Number', 'number': '01332701284', 'color': Colors.pink},
     {'name': '+880 1915-313344', 'number': '+880 1915-313344', 'color': Colors.purple},
     {'name': '+880 1311860024', 'number': '+8801311860024', 'color': Colors.teal},
@@ -14,19 +20,30 @@ class ContactsScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.green[700],
-        title: Text("Contacts"),
+        title: Text("Contacts",style: TextStyle(
+          color: Colors.white
+        ),),
+        leading: IconButton(onPressed: (){
+          Get.back();
+
+        }, icon: Icon(Icons.arrow_back,color: Colors.white,)),
       ),
+      backgroundColor: Color(0xFFF3F3F3),
+
       body: Column(
         children: [
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: TextField(
-              decoration: InputDecoration(
-                hintText: "Search",
-                prefixIcon: Icon(Icons.search),
-                border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
-                filled: true,
-                fillColor: Colors.grey[200],
+            child: Container(
+              color: Colors.white,
+              child: TextField(
+                decoration: InputDecoration(
+                  hintText: "Search",
+                  prefixIcon: Icon(Icons.search),
+                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+                  filled: true,
+                  fillColor: Colors.grey[200],
+                ),
               ),
             ),
           ),
@@ -60,7 +77,7 @@ class ContactTile extends StatelessWidget {
   final String number;
   final Color color;
 
-  const ContactTile({required this.name, required this.number, required this.color});
+   const ContactTile({super.key, required this.name, required this.number, required this.color});
 
   @override
   Widget build(BuildContext context) {

@@ -40,7 +40,7 @@ class ComboOptionsWidget extends StatelessWidget {
             return GestureDetector(
               onTap: () => controller.selectedComboPackage.value = package['min']!,
               child: Card(
-                color: isSelected ? Colors.yellow.shade50 : Colors.white,
+                color: isSelected ? Color(0xFFFCD434) : Colors.white,
                 child: ListTile(
                   leading: CircleAvatar(child: Image.asset("lib/assets/operators_icon/Gp.png")),
                   title: Row(

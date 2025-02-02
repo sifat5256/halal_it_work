@@ -18,8 +18,11 @@ class MobileTopUpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFFF3F3F3),
+
 
       appBar: AppBar(
+        backgroundColor: Color(0xFFF3F3F3),
         centerTitle: true,
         title: Text("Mobile Top Up",style: TextStyle(
           fontWeight: FontWeight.bold
@@ -38,8 +41,10 @@ class MobileTopUpScreen extends StatelessWidget {
               padding: const EdgeInsets.only(left: 6,right: 6),
               child: Column(
                 children: [
+                  /// Mobile Number Input Field
                   _buildMobileNumberInput(),
                   SizedBox(height: 15),
+                  ///  Operator Selection Gp Airtel Robi etc
                   _buildOperatorSelection(),
                   SizedBox(height: 15),
                   ///  Prepaid / Postpaid / Skitto Selection
@@ -100,7 +105,7 @@ class MobileTopUpScreen extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
               color: controller.selectedOperator.value == operator['name']
-                  ? Colors.yellow.withOpacity(0.6)
+                  ? Color(0xFFFCD434).withOpacity(0.6)
                   : Colors.white,
               border: Border.all(
                   color: controller.selectedOperator.value == operator['name']
@@ -141,7 +146,7 @@ class MobileTopUpScreen extends StatelessWidget {
                 padding: EdgeInsets.symmetric(vertical: 12, horizontal: 20),
                 decoration: BoxDecoration(
                   color: controller.selectedType.value == type
-                      ? Colors.yellow.shade500
+                      ? Color(0xFFFCD434)
                       : Colors.white,
                   borderRadius: BorderRadius.circular(10),
                   border: Border.all(
@@ -181,6 +186,8 @@ class MobileTopUpScreen extends StatelessWidget {
               return GestureDetector(
                 onTap: () => controller.selectedTab.value = tab,
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
                       tab,
@@ -235,7 +242,8 @@ class MobileTopUpScreen extends StatelessWidget {
 
       },
       style: ElevatedButton.styleFrom(
-        backgroundColor: Colors.yellow,
+        backgroundColor: Color(0xFFFCD434),
+
         minimumSize: Size(double.infinity, 50),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.zero, // No rounded corners
