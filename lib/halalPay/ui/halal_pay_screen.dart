@@ -23,8 +23,14 @@ class HalalPayScreen extends StatelessWidget {
         children: [
           _buildBalanceSection(),
           _buildActionButtons(context),
+          SizedBox(
+            height: 10,
+          ),
           _buildServiceOptions(),
-          _buildRecentTransaction(),
+          SizedBox(
+            height: 30,
+          ),
+          _buildRecentTransaction(context),
         ],
       ),
     );
@@ -155,64 +161,86 @@ class HalalPayScreen extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          
-          Expanded(child: _buildServiceIcon("lib/assets/operators_icon/sendCash.png", "Send Cash")),
-          Expanded(child: _buildServiceIcon("lib/assets/operators_icon/gift.png", "Gift")),
+          Expanded(child: _buildServiceIcon("lib/assets/halal_service_icons/send1.png", "Send Cash")),
+          Expanded(child: _buildServiceIcon("lib/assets/halal_service_icons/gift.png", "Gift")),
           Expanded(child: _buildServiceIcon("lib/assets/operators_icon/mobiletoup.png", "Mobile Top Up")),
-          Expanded(child: _buildServiceIcon("lib/assets/operators_icon/sendCash.png", "Request Payment")),
+          Expanded(child: _buildServiceIcon("lib/assets/halal_service_icons/request_payment.png", "Request Payment")),
         ],
       ),
     );
   }
 
-  Widget _buildServiceIcon( String label,String imagePath) {
+  Widget _buildServiceIcon(String imagePath, String label) {
     return Column(
       children: [
-        Image.asset(imagePath,height: 30,width: 30,),
-
+        Image.asset(imagePath, height: 35, width: 35, errorBuilder: (context, error, stackTrace) {
+          return Icon(Icons.error, size: 30, color: Colors.red); // Placeholder for missing image
+        }),
         SizedBox(height: 5),
-        Text(label, textAlign: TextAlign.center, style: TextStyle(fontSize: 12)),
+        Text(label, textAlign: TextAlign.center, style: TextStyle(fontSize: 12,color: Color(0xFF1E1700),fontWeight: FontWeight.bold)),
       ],
     );
   }
 
-  Widget _buildRecentTransaction() {
-    return Container(
-      margin: EdgeInsets.symmetric(horizontal: 20, vertical: 5), // Reduced vertical space
-      padding: EdgeInsets.all(12),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(12),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.1), // Light shadow
-            blurRadius: 6,
-            spreadRadius: 2,
-            offset: Offset(0, 4), // Moves shadow downward
+
+  Widget _buildRecentTransaction(context) {
+    return Stack(
+      children: [
+        Container(
+          height: MediaQuery.of(context).size.height*0.11,
+          // width: 200,
+          margin: EdgeInsets.symmetric(horizontal: 20, vertical: 5), // Reduced vertical space
+          padding: EdgeInsets.all(12),
+          decoration: BoxDecoration(
+            color: Colors.grey.shade400,
+            borderRadius: BorderRadius.circular(12),
+
           ),
-        ],
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Row(
-            children: [
-              Icon(Icons.campaign, color: Colors.black, size: 24), // Similar to your icon
-              SizedBox(width: 10),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text("Receive 10,000 Bdt",
-                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black)),
-                  SizedBox(height: 5),
-                  Text("2 hours ago", style: TextStyle(color: Colors.grey, fontSize: 12)),
-                ],
+        ),
+        Container(
+          height: MediaQuery.of(context).size.height*0.1,
+          margin: EdgeInsets.symmetric(horizontal: 20, vertical: 5), // Reduced vertical space
+          padding: EdgeInsets.all(12),
+          decoration: BoxDecoration(
+            color: Colors.grey.shade300,
+            borderRadius: BorderRadius.circular(12),
+
+          ),
+        ),
+        Container(
+          height: MediaQuery.of(context).size.height*0.09,
+          margin: EdgeInsets.symmetric(horizontal: 20, vertical: 5), // Reduced vertical space
+          padding: EdgeInsets.all(12),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(12),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.1), // Light shadow
+                blurRadius: 6,
+                spreadRadius: 2,
+                offset: Offset(0, 4), // Moves shadow downward
               ),
             ],
           ),
-          Icon(Icons.more_vert, color: Colors.grey),
-        ],
-      ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Icon(Icons.campaign, color: Colors.black, size: 24),
+              Row(
+                children: [
+                // Similar to your icon
+                  SizedBox(width: 10),
+                  Text("Receive 10,000 Bdt",
+                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black)),
+                  SizedBox(height: 5),
+                ],
+              ),
+              Text("2 hours ago", style: TextStyle(color: Colors.grey, fontSize: 12)),
+            ],
+          ),
+        ),
+      ],
     );
   }
 

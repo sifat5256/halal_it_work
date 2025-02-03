@@ -12,7 +12,7 @@ class SendMoneyController extends GetxController {
 
   // Controllers for different input fields
   var emailPhoneController = TextEditingController();
-  var payIDController = TextEditingController();
+//  var payIDController = TextEditingController();
   var halalIDController = TextEditingController();
 
   // Track selected method
@@ -20,7 +20,7 @@ class SendMoneyController extends GetxController {
 
   // Getters for selection checks
   bool get isEmailPhoneSelected => selectedMethod.value == "Email / Phone";
-  bool get isPayIDSelected => selectedMethod.value == "Pay ID";
+ // bool get isPayIDSelected => selectedMethod.value == "Pay ID";
   bool get isHalalIDSelected => selectedMethod.value == "Halal ID";
 
   // Method to set selected method

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../add_note/ui/add_note_screen.dart';
 import '../controller/amount_controller.dart';
 
 class EnterAmountScreen extends StatelessWidget {
@@ -63,24 +64,31 @@ class EnterAmountScreen extends StatelessWidget {
           )),
 
           SizedBox(height: 12),
-          Text("Add Note", style: TextStyle(color: Colors.grey, fontSize: 16)),
+          TextButton(
+            onPressed: () => showAddNoteBottomSheet(context),
+            child: Text("Add Note", style: TextStyle(color: Colors.grey, fontSize: 16)),
+          ),
+
 
           Spacer(),
           _buildNumberPad(),
 
-          SizedBox(
-            width: double.infinity,
-            height: 50,
-            child: ElevatedButton(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.yellow[700],
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: SizedBox(
+              width: double.infinity,
+              height: 50,
+              child: ElevatedButton(
+                onPressed: () =>showConfirmPaymentBottomSheet(context,""),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Color(0xFFFCD434),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                ),
+                child: Text("Continue", style: TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold)),
               ),
-              child: Text("Continue", style: TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold)),
             ),
           ),
-          SizedBox(height: 16),
+          SizedBox(height: 30),
         ],
       ),
     );
@@ -99,7 +107,7 @@ class EnterAmountScreen extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
-          color: Colors.grey
+          color: Color(0xFFFFFFFF),
         ),
         child: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -124,13 +132,13 @@ class EnterAmountScreen extends StatelessWidget {
                 },
                 child: Container(
                   decoration: BoxDecoration(
-                    color: Colors.grey[300],
+                    color: Color(0xFFD9D9D9),
                     shape: BoxShape.circle,
                   ),
                   child: Center(
                     child: Text(
                       buttons[index],
-                      style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.black),
+                      style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Color(0xFFFFFFFF)),
                     ),
                   ),
                 ),
