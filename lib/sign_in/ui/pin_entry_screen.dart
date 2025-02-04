@@ -67,7 +67,7 @@ class PinEntryScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text("Use another account",
-                    style: TextStyle(color: Color(0xFFEEBE14), fontSize: 14)),
+                    style: TextStyle(color: Color(0xFFEEBE14), fontSize: 15,fontWeight: FontWeight.bold)),
                 GestureDetector(
                   onTap: () {},
                   child: Icon(Icons.fingerprint, size: 40, color: Colors.grey),
@@ -78,9 +78,9 @@ class PinEntryScreen extends StatelessWidget {
             Row(
               children: [
                 Text("I forget my pay pin . ",
-                    style: TextStyle(color: Color(0xFF767268), fontSize: 14)),
+                    style: TextStyle(color: Color(0xFF767268), fontSize: 15)),
                 Text("Reset it now.",
-                    style: TextStyle(color: Color(0xFFEEBE14), fontSize: 14)),
+                    style: TextStyle(color: Color(0xFFEEBE14), fontSize: 15,fontWeight: FontWeight.bold)),
               ],
             ),
             Spacer(),
