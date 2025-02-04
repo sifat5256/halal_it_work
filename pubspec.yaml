@@ -62,6 +62,7 @@ flutter:
   assets:
     - lib/assets/operators_icon/
     - lib/assets/halal_service_icons/
+    - lib/assets/app_bar_icon/
 
 
   #   - images/a_dot_ham.jpeg
