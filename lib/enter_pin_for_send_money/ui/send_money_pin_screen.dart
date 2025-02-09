@@ -1,24 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../controller/pin_controller.dart';
+import 'package:halal_it/enter_pin_for_send_money/controller/send_money_pin_controller.dart';
+import 'package:halal_it/send_money_proccesing/ui/send_money_proccesing_screen.dart';
 
-class PinEntryScreen extends StatelessWidget {
-  final PinController controller = Get.put(PinController());
+
+class SendMoneyPinScreen extends StatelessWidget {
+  final SendMoneyPinController controller = Get.put(SendMoneyPinController());
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Image.asset("lib/assets/app_bar_icon/app_icon.png", height: 50, width: 50),
+
 
         backgroundColor: Colors.grey[200],
-        title: Text("Halal Cash Personal",
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700)),
-        centerTitle: true,
-        actions: [Padding(
-          padding: const EdgeInsets.only(right: 10),
-          child: Image.asset("lib/assets/app_bar_icon/head_set.png",height: 50,width: 50,),
-        )],
+
+
+
       ),
       backgroundColor: Colors.grey[200],
       body: Padding(
@@ -60,7 +59,7 @@ class PinEntryScreen extends StatelessWidget {
                     ),
                   )),
             )),
-                SizedBox(height: 20),
+            SizedBox(height: 20),
 
             /// Actions
             Row(
@@ -122,7 +121,7 @@ class PinEntryScreen extends StatelessWidget {
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           color: Color(0xFFCBCBCB),
-                         
+
                         ),
                         child: Center(
                           child: Text(
@@ -147,7 +146,9 @@ class PinEntryScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10)),
                 minimumSize: Size(double.infinity, 50),
               ),
-              onPressed: () {},
+              onPressed: () {
+                Get.to(SendMoneyProcessingScreen());
+              },
               child: Text("Continue",
                   style: TextStyle(color: Colors.white, fontSize: 18)),
             ),
