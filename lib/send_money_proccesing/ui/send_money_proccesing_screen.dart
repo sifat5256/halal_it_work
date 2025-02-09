@@ -79,6 +79,7 @@ class SendMoneyProcessingScreen extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Column(
+
           children: [
             Container(
               width: 14,
