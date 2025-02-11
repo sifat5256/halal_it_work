@@ -65,6 +65,7 @@ flutter:
     - lib/assets/halal_service_icons/
     - lib/assets/app_bar_icon/
     - lib/assets/mobile_banking/
+    - asset/images/
 
 
 

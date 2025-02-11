@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:halal_it/amount/ui/enter_amount_screen.dart';
+import 'package:halal_it/deposit/ui/deposit_screen.dart';
 import 'package:halal_it/enter_pin_for_send_money/ui/send_money_pin_screen.dart';
 import 'package:halal_it/halalPay/ui/halal_pay_screen.dart';
 import 'package:halal_it/history/ui/transaction_history_screen.dart';
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
 
-      home:  SendCashScreen(),
+      home:  DepositScreen(),
     );
   }
 }
