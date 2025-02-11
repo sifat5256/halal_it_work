@@ -37,6 +37,7 @@ class DepositScreen extends StatelessWidget {
           children: [
             // Tab Selection (Mobile Banking / Bank Transfer)
             Container(
+              height: 50,
 
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
@@ -121,6 +122,7 @@ class DepositScreen extends StatelessWidget {
     return Obx(() => GestureDetector(
       onTap: () => controller.selectedTab.value = title,
       child: Container(
+        height: 50,
         width: Get.width * 0.45,
         padding: const EdgeInsets.symmetric(vertical: 12),
         decoration: BoxDecoration(
