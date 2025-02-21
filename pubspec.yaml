@@ -67,6 +67,7 @@ flutter:
     - lib/assets/app_bar_icon/
     - lib/assets/mobile_banking/
     - asset/images/
+    - asset/currncey_chnge/
 
 
 
