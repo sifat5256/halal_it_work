@@ -15,7 +15,34 @@ class _GoldBuySellScreenState extends State<GoldBuySellScreen> {
 
     return Scaffold(
       backgroundColor: Colors.grey.shade100,
-      appBar: _buildAppBar(),
+      appBar: AppBar(
+        backgroundColor: Colors.grey.shade100,
+        centerTitle: true,
+        leading: Icon(Icons.arrow_back),
+        title: Row(
+          children: [
+            SizedBox(
+              width: 40,
+            ),
+            Image.asset("asset/currncey_chnge/currency_change.png"),
+            SizedBox(
+              width: 5,
+            ),
+            Text("GOLD/BDT",style: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.bold
+            ),),
+          ],
+        ),
+        actions: [
+          Icon(Icons.circle,size: 30,color: Colors.grey.shade500,),
+          Icon(Icons.circle,size: 30,color: Colors.grey.shade500,),
+          Icon(Icons.circle,size: 30,color: Colors.grey.shade500,),
+          SizedBox(
+            width: 10,
+          )
+        ],
+      ),
       body: Padding(
         padding: EdgeInsets.symmetric(
           horizontal: screenWidth * 0.03, // 3% of screen width
@@ -39,25 +66,8 @@ class _GoldBuySellScreenState extends State<GoldBuySellScreen> {
     );
   }
 
-  // Build the AppBar
-  AppBar _buildAppBar() {
-    return AppBar(
-      backgroundColor: Colors.grey.shade100,
-      title: const Text(
-        "GOLD/BDT",
-        style: TextStyle(
-          color: Colors.black,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-      centerTitle: true,
-      actions: [
-        const Icon(Icons.circle, size: 30, color: Color(0xFF66635B)),
-        const Icon(Icons.circle, size: 30, color: Color(0xFF66635B)),
-        const SizedBox(width: 10),
-      ],
-    );
-  }
+
+
 
   // Build the header section with Buy/Sell toggle button and labels
   Widget _buildHeader(double screenWidth) {

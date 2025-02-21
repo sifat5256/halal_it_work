@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:halal_it/gold_market/ui/buy_sell_gold_screen.dart';
 
 import '../widget/custom_graph.dart';
 import '../widget/price_car_widget.dart';
@@ -14,9 +17,21 @@ class GoldMarketScreen extends StatelessWidget {
         backgroundColor: Colors.grey.shade100,
         centerTitle: true,
         leading: Icon(Icons.arrow_back),
-        title: Text("GOLD/BDT",style: TextStyle(
-          color: Colors.black
-        ),),
+        title: Row(
+          children: [
+            SizedBox(
+              width: 40,
+            ),
+            Image.asset("asset/currncey_chnge/currency_change.png"),
+            SizedBox(
+              width: 5,
+            ),
+            Text("GOLD/BDT",style: TextStyle(
+              color: Colors.black,
+              fontWeight: FontWeight.bold
+            ),),
+          ],
+        ),
         actions: [
           Icon(Icons.circle,size: 30,color: Colors.grey.shade500,),
           Icon(Icons.circle,size: 30,color: Colors.grey.shade500,),
@@ -75,10 +90,10 @@ class GoldMarketScreen extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         _buildButton("BUY", Colors.green, () {
-          print("Buy button pressed");
+          Get.to(GoldBuySellScreen());
         }),
         _buildButton("SELL", Colors.red, () {
-          print("Sell button pressed");
+          Get.to(GoldBuySellScreen());
         }),
       ],
     );
