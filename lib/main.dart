@@ -7,10 +7,15 @@ import 'package:halal_it/halalPay/ui/halal_pay_screen.dart';
 import 'package:halal_it/history/ui/transaction_history_screen.dart';
 import 'package:halal_it/mobile_banking/ui/mobile_banking_screen.dart';
 import 'package:halal_it/mobile_top_up/ui/mobile_top_up_screen.dart';
+import 'package:halal_it/public_safety_app/button/sos.dart';
+import 'package:halal_it/public_safety_app/public_safety.dart';
+import 'package:halal_it/public_safety_app/trasted_contact.dart';
+import 'package:halal_it/splash_screen/ui/splash_screen.dart';
 
 import 'gold_market/ui/buy_gold_screen.dart';
 import 'gold_market/ui/buy_sell_gold_screen.dart';
 import 'gold_market/ui/gold_market_screen.dart';
+import 'main_home/dancing_dot_screen.dart';
 import 'sendMoney/ui/send_money_screen.dart';
 import 'send_cash/ui/send_cash_screen.dart';
 import 'send_money_proccesing/ui/send_money_proccesing_screen.dart';
@@ -35,7 +40,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
 
-      home:  GoldMarketScreen(),
+      home:  TrustedContactsScreen(),
     );
   }
 }
