@@ -16,6 +16,7 @@ import 'gold_market/ui/buy_gold_screen.dart';
 import 'gold_market/ui/buy_sell_gold_screen.dart';
 import 'gold_market/ui/gold_market_screen.dart';
 import 'main_home/dancing_dot_screen.dart';
+import 'pay_billing/ui/pay_billing_screen.dart';
 import 'sendMoney/ui/send_money_screen.dart';
 import 'send_cash/ui/send_cash_screen.dart';
 import 'send_money_proccesing/ui/send_money_proccesing_screen.dart';
@@ -40,7 +41,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
 
-      home:  TrustedContactsScreen(),
+      home:  PayBillScreen(),
     );
   }
 }
