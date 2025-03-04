@@ -14,6 +14,7 @@ import 'package:halal_it/public_safety_app/public_safety.dart';
 import 'package:halal_it/public_safety_app/trasted_contact.dart';
 import 'package:halal_it/splash_screen/ui/splash_screen.dart';
 
+import 'electricity_billing/ui/electricity_billing_screen.dart';
 import 'gold_market/ui/buy_gold_screen.dart';
 import 'gold_market/ui/buy_sell_gold_screen.dart';
 import 'gold_market/ui/gold_market_screen.dart';
@@ -44,7 +45,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
 
-      home:  PayBillSuccessScreen(),
+      home:  PayBillScreen(),
     );
   }
 }
