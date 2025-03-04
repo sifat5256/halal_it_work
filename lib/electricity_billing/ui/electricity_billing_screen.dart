@@ -171,6 +171,7 @@ class _ElectricityBillScreenState extends State<ElectricityBillScreen> {
                 ),
               ),
 
+
               SizedBox(height: 60),
 
               GestureDetector(

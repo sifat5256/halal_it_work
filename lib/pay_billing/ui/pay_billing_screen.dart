@@ -106,7 +106,6 @@ class PayBillScreen extends StatelessWidget {
                 ],
               ),
             )
-
           ],
         ),
       ),
