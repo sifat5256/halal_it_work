@@ -15,6 +15,8 @@ import 'package:halal_it/public_safety_app/trasted_contact.dart';
 import 'package:halal_it/splash_screen/ui/splash_screen.dart';
 
 import 'animated_fab_button/animated_fab_b.dart';
+import 'backgorundImage/ui/image_with_home.dart';
+import 'backgorundImage/ui/select_dynamically_background.dart';
 import 'electricity_billing/ui/electricity_billing_screen.dart';
 import 'gold_market/ui/buy_gold_screen.dart';
 import 'gold_market/ui/buy_sell_gold_screen.dart';
@@ -46,7 +48,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
 
-      home:  ExpandableFabExample(),
+      home:  HomeScreenWithImageBackground(),
     );
   }
 }
