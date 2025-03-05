@@ -13,35 +13,92 @@ class _HomeScreenWithImageBackgroundState
     "asset/images/abcdefgh.png",
     "asset/images/abcd.png",
     "asset/images/green.png",
-  ]; // List of background images
+    "asset/images/black.png"
+  ]; // Background image options
 
-  String selectedImage = "asset/images/abcdefgh.png"; // Default background image
+  String selectedImage = "asset/images/abcdefgh.png"; // Default background
   String userInput = "";
 
   void changeBackground(String newImage) {
     setState(() {
       selectedImage = newImage;
     });
+    Navigator.pop(context); // Close the bottom sheet after selection
+  }
+
+  void showThemeSelection() {
+    showModalBottomSheet(
+      context: context,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (context) {
+        return Container(
+          padding: EdgeInsets.all(16),
+          height: 250,
+          child: Column(
+            children: [
+              Text(
+                "Select Theme",
+                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+              ),
+              SizedBox(height: 10),
+              Expanded(
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: images.map((img) {
+                    return GestureDetector(
+                      onTap: () => changeBackground(img),
+                      child: Container(
+                        margin: EdgeInsets.all(8),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black26,
+                              blurRadius: 5,
+                              offset: Offset(2, 2),
+                            ),
+                          ],
+                        ),
+                        height: 100,
+                        width: 100,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(8),
+                          child: Image.asset(
+                            img,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                    );
+                  }).toList(),
+                ),
+              ),
+            ],
+          ),
+        );
+      },
+    );
   }
 
   void onNumberPressed(String number) {
     setState(() {
-      userInput += number; // Append number to user input
+      userInput += number;
     });
   }
 
   void onClear() {
     setState(() {
-      userInput = ""; // Clear user input
+      userInput = "";
     });
   }
 
   void _showResultDialog() {
-    String message;
-    String emoji;
+    String message, emoji;
     Color bgColor;
 
-    if (userInput == "10") { // Correct answer for 5 + 5
+    if (userInput == "10") {
       message = "Great Job! 🎉";
       emoji = "🎯✨";
       bgColor = Colors.green.shade300;
@@ -59,25 +116,16 @@ class _HomeScreenWithImageBackgroundState
         title: Center(
           child: Text(
             message,
-            style: TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
-            ),
+            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white),
           ),
         ),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(
-              emoji,
-              style: TextStyle(fontSize: 50),
-            ),
+            Text(emoji, style: TextStyle(fontSize: 50)),
             SizedBox(height: 10),
             Text(
-              userInput == "10"
-                  ? "You're a Math Star! 🌟"
-                  : "Keep Trying, You Can Do It!",
+              userInput == "10" ? "You're a Math Star! 🌟" : "Keep Trying, You Can Do It!",
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 18, color: Colors.white),
             ),
@@ -95,7 +143,7 @@ class _HomeScreenWithImageBackgroundState
               ),
               onPressed: () {
                 Navigator.pop(context);
-                onClear(); // Clear input after closing
+                onClear();
               },
               child: Text("OK", style: TextStyle(fontSize: 18)),
             ),
@@ -113,39 +161,18 @@ class _HomeScreenWithImageBackgroundState
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: images.map((img) {
-                  return GestureDetector(
-                    onTap: () => changeBackground(img),
-                    child: Container(
-                      margin: EdgeInsets.all(8),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black26,
-                            blurRadius: 5,
-                            offset: Offset(2, 2),
-                          ),
-                        ],
-                      ),
-                      height: 100,
-                      width: 100,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(8),
-                        child: Image.asset(
-                          img,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
-                  );
-                }).toList(),
+            ElevatedButton(
+              onPressed: showThemeSelection,
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.blueAccent,
+                foregroundColor: Colors.white,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
               ),
+              child: Text("Select Theme", style: TextStyle(fontSize: 18)),
             ),
+            SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -166,10 +193,7 @@ class _HomeScreenWithImageBackgroundState
               elevation: 4,
               child: Container(
                 margin: EdgeInsets.symmetric(horizontal: 5),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                height: 80,
+                height: 100,
                 width: 180,
                 child: Center(
                   child: Text(
@@ -195,12 +219,8 @@ class _HomeScreenWithImageBackgroundState
       color: Colors.red.shade200,
       child: Container(
         margin: EdgeInsets.symmetric(horizontal: 5),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16),
-          color: Colors.red.shade200,
-        ),
-        height: 80,
-        width: 80,
+        height: 100,
+        width: 100,
         child: Center(
           child: Text(
             text,

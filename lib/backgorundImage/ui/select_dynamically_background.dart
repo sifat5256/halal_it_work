@@ -74,19 +74,28 @@ class _HomeScreenWithImageBackgroundDynamicaalyState
   }
 
   Widget _buildNumberPad() {
-    return Column(
-      children: [
-        for (var row in [
-          ['1', '2', '3'],
-          ['4', '5', '6'],
-          ['7', '8', '9'],
-          ['C', '0', 'OK']
-        ])
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: row.map((num) => _buildNumberButton(num)).toList(),
-          ),
-      ],
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(16),
+        color: Colors.white10
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            for (var row in [
+              ['1', '2', '3'],
+              ['4', '5', '6'],
+              ['7', '8', '9'],
+              ['C', '0', 'OK']
+            ])
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: row.map((num) => _buildNumberButton(num)).toList(),
+              ),
+          ],
+        ),
+      ),
     );
   }
 
